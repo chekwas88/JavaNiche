@@ -1,4 +1,5 @@
 module.exports = {
+	preset: 'jest-expo',
   coverageDirectory: 'coverage',
   collectCoverage: true,
   setupFiles: ['<rootDir>/enzyme.config.js'],
