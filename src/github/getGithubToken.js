@@ -1,5 +1,4 @@
 import { AuthSession } from 'expo';
-// import { CLIENT_ID, CLIENT_SECRET } from 'react-native-dotenv';
 
 const CLIENT_ID = 'f9d99e0e7e1bc66deb13';
 const CLIENT_SECRET = '7f59b7ea847a86b9857cbd7e0c78baf2f29abd4c';
@@ -49,7 +48,7 @@ const githubAuthSession = async () => {
     );
     return access_token;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 export default githubAuthSession;

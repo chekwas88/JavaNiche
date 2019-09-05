@@ -4,7 +4,7 @@ import AuthScreen from '../../src/screens/AuthLoading';
 
 describe('Test for Login component', () => {
   const wrapper = shallow(<AuthScreen />);
-  test('should render header correctly', () => {
+  test('should render authLoading correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

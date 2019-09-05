@@ -10,10 +10,10 @@ import {
 } from 'react-navigation';
 import getToken from './src/util/getToken';
 import LoginScreen from './src/screens/Login';
-//import HomeScreen from './src/screen/Home';
+import HomeScreen from './src/screens/Home';
 import AuthLoadingScreen from './src/screens/AuthLoading';
 
-//const AppStack = createStackNavigator({ Home: HomeScreen });
+const AppStack = createStackNavigator({ Home: HomeScreen });
 const AuthStack = createStackNavigator({
   Login: {
     screen: LoginScreen,
@@ -27,7 +27,8 @@ const AppContainer = createAppContainer(
   createSwitchNavigator(
     {
       AuthLoading: AuthLoadingScreen,
-      Auth: AuthStack
+      Auth: AuthStack,
+      App: AppStack
     },
     {
       initialRouteName: 'AuthLoading'

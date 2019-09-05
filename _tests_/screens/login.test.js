@@ -4,7 +4,7 @@ import LoginScreen from '../../src/screens/Login';
 
 describe('Test for Login component', () => {
   const wrapper = shallow(<LoginScreen />);
-  test('should render header correctly', () => {
+  test('should test for login ', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

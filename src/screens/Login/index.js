@@ -14,7 +14,7 @@ class LoginScreen extends Component {
         this.props.navigation.navigate('App');
       }
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
   render() {
