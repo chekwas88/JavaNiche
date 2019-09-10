@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ProfileScreen from '../../src/screens/Profile';
 
-describe('Test for RepoButton component', () => {
+describe('Test for profile screen', () => {
   it('should render correctly', () => {
     const props = {
       navigation: {

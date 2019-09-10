@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import LoginScreen from '../../src/screens/Login';
 
-describe('Test for Login component', () => {
+describe('Test for Login screen', () => {
   const wrapper = shallow(<LoginScreen />);
   test('should test for login ', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
-describe('Text for login action', () => {
+describe('Test for login action', () => {
   it('should call onPress', () => {
     const wrapper = shallow(<LoginScreen />);
     const touchButton = wrapper

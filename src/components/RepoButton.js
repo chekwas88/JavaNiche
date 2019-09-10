@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const Button = () => {
+const Button = ({ reposLink, navigate }) => {
   return (
     <View style={styles.buttonContainer}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigate('Webview', { reposLink })}>
         <Text style={styles.buttonText}>MyRepo</Text>
       </TouchableOpacity>
     </View>
