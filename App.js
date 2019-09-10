@@ -11,9 +11,18 @@ import {
 import getToken from './src/util/getToken';
 import LoginScreen from './src/screens/Login';
 import HomeScreen from './src/screens/Home';
+import ProfileScreen from './src/screens/Profile';
 import AuthLoadingScreen from './src/screens/AuthLoading';
 
-const AppStack = createStackNavigator({ Home: HomeScreen });
+const AppStack = createStackNavigator({
+  Home: HomeScreen,
+  Profile: {
+    screen: ProfileScreen,
+    navigationOptions: {
+      header: null
+    }
+  }
+});
 const AuthStack = createStackNavigator({
   Login: {
     screen: LoginScreen,

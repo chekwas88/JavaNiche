@@ -1,9 +1,30 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Details = ({ email, avatarUrl, fullName }) => {
+const Details = ({
+  navigation,
+  email,
+  avatarUrl,
+  fullName,
+  userName,
+  reposUrl,
+  starredRepos,
+  repos
+}) => {
+  const devDetails = {
+    email,
+    avatarUrl,
+    fullName,
+    userName,
+    repos,
+    starredRepos,
+    reposUrl
+  };
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate('Profile', devDetails)}
+    >
       <View style={styles.flexLayout}>
         <View>
           <Image style={styles.profileImage} source={{ uri: avatarUrl }} />
