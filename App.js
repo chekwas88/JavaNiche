@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ApolloProvider } from 'react-apollo';
+import { Text } from 'react-native';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-boost';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -13,11 +14,18 @@ import LoginScreen from './src/screens/Login';
 import HomeScreen from './src/screens/Home';
 import ProfileScreen from './src/screens/Profile';
 import AuthLoadingScreen from './src/screens/AuthLoading';
+import WebviewScreen from './src/screens/WebView';
 
 const AppStack = createStackNavigator({
   Home: HomeScreen,
   Profile: {
     screen: ProfileScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Webview: {
+    screen: WebviewScreen,
     navigationOptions: {
       header: null
     }
@@ -45,13 +53,14 @@ const AppContainer = createAppContainer(
   )
 );
 class App extends Component {
-  getAsyncToken = async () => await getToken();
   state = {
     token: null
   };
-  async componentDidMount() {
+  async componentWillMount() {
     const token = await getToken();
-    this.setState({ token });
+    this.setState({
+      token
+    });
   }
   render() {
     const apolloClient = new ApolloClient({
@@ -63,7 +72,9 @@ class App extends Component {
       }),
       cache: new InMemoryCache()
     });
-
+    if (!this.state.token) {
+      return <Text>Loading...</Text>;
+    }
     return (
       <ApolloProvider client={apolloClient}>
         <AppContainer />

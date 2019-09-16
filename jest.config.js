@@ -1,5 +1,5 @@
 module.exports = {
-	preset: 'jest-expo',
+  preset: 'jest-expo',
   coverageDirectory: 'coverage',
   collectCoverage: true,
   setupFiles: ['<rootDir>/enzyme.config.js'],
@@ -9,16 +9,16 @@ module.exports = {
     '<rootDir>/assets/img'
   ],
   moduleNameMapper: {
-    '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg)$':
-      '<rootDir>/mocks/fileMock.js',
+    '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg)$': '<rootDir>/mocks/fileMock.js'
   },
   collectCoverageFrom: [
     '**/*.{js,jsx}',
-    "!**/coverage/**",
-    '!**/node_modules/**',
-    '!jest.config.js',
-    "!**/babel.config.js",
     '!**/coverage/**',
-    '!**/_tests_/**',
-  ],
+    '!**/node_modules/**',
+    '!App.js',
+    '!jest.config.js',
+    '!**/babel.config.js',
+    '!**/coverage/**',
+    '!**/_tests_/**'
+  ]
 };

@@ -4,6 +4,7 @@ import profileScreenStyle from './profileStyle';
 import ProfileUpper from '../../components/ProfileUpper';
 import RepoDetails from '../../components/RepoDetails';
 import RepoButton from '../../components/RepoButton';
+import SocialShare from '../../components/FAB';
 
 class ProfileScreen extends Component {
   render() {
@@ -19,7 +20,7 @@ class ProfileScreen extends Component {
             repos,
             starredRepos,
             reposUrl
-          }
+          } = {}
         }
       }
     } = this.props;
@@ -32,6 +33,7 @@ class ProfileScreen extends Component {
           <RepoDetails repos={repos} starredRepos={starredRepos} />
           <RepoButton navigate={navigate} reposLink={reposUrl} />
         </View>
+        <SocialShare profileUrl={reposUrl} userName={userName} />
       </View>
     );
   }

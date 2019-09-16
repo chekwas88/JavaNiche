@@ -4,22 +4,28 @@ import homeScreenStyle from './homeStyle';
 import DevLists from '../../components/DetailsLists';
 
 class HomeScreen extends Component {
-  static navigationOptions = {
-    title: 'Lagos Java Developers',
-    headerStyle: {
-      backgroundColor: '#1A3849'
-    },
-    headerRight: (
-      <Button onPress={this.logOutAsync} title="sign me out" color="#1D4155" />
-    ),
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold'
-    }
-  };
-  logOutAsync = async () => {
-    await AsyncStorage.clear();
-    this.props.navigation.navigate('Auth');
+  static navigationOptions = ({ navigation }) => {
+    const logOutAsync = async () => {
+      await AsyncStorage.clear();
+      navigation.navigate('Auth');
+    };
+    return {
+      title: 'Lagos Java Developers',
+      headerStyle: {
+        backgroundColor: '#1A3849'
+      },
+      headerRight: (
+        <Button
+          onPress={async () => await logOutAsync()}
+          title="sign me out"
+          color="#1D4155"
+        />
+      ),
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold'
+      }
+    };
   };
 
   render() {
